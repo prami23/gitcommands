@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+tools {
+    maven 'maven3.9.6'
+}
+    stages {
+        stage('Hello-cloning a project') {
+            steps {
+            git branch: 'main', url: "https://github.com/gbhure/mvn-project.git"
+            }
+        }
+    
+    
+        stage('building the maven project') {
+            steps {
+        sh "mvn install"
+       
+            }
+        }
+      
+    }
+
+    
+} 
+    
+    
+
+
+
